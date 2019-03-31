@@ -29,18 +29,20 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: ident, for: indexPath) as! CustomCellView
         
         // Configure Cell
-        cell.nameLabel.text = Model.getName(at: indexPath.row)
-        cell.locationLabel.text = Model.getLocation(at: indexPath.row)
-        cell.typeLabel.text = Model.getType(at: indexPath.row)
-        cell.thumbnailImageView.image = UIImage(named: Model.getImage(at: indexPath.row))
-        cell.accessoryType = Model.getCheckIn(at: indexPath.row) ? .checkmark : .none
+        let restaurant = Model.getRestaurant(at: indexPath.row)
+        cell.nameLabel.text = restaurant.name
+        cell.locationLabel.text = restaurant.location
+        cell.typeLabel.text = restaurant.type
+        cell.thumbnailImageView.image = UIImage(named: restaurant.image)
+        cell.accessoryType = restaurant.isVisited ? .checkmark : .none
         
         return cell
     }
        
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let shareHandler = {(action: UITableViewRowAction, indexPath: IndexPath) -> Void in
-            let defaultText = "Just checking in at \(Model.getName(at: indexPath.row))"
+            let restaurant = Model.getRestaurant(at: indexPath.row)
+            let defaultText = "Just checking in at \(restaurant.name)"
             let ac = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
             self.present(ac, animated: true, completion: nil)
         }
@@ -59,11 +61,9 @@ class ViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showRestaurantDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
+                let restaurant = Model.getRestaurant(at: indexPath.row)
                 let controller = segue.destination as! DetailViewController
-                controller.restaurantImage = Model.getImage(at: indexPath.row)
-                controller.restaurantName = Model.getName(at: indexPath.row)
-                controller.restaurantType = Model.getType(at: indexPath.row)
-                controller.restaurantLocation = Model.getLocation(at: indexPath.row)
+                controller.restaurant = restaurant
             }
         }
     }
