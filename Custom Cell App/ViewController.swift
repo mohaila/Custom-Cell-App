@@ -37,42 +37,7 @@ class ViewController: UITableViewController {
         
         return cell
     }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
-        
-        let callActionHandler = {(action:UIAlertAction)->Void in
-            let alertMessage = UIAlertController(title: "Service Unavailable", message: "Sorry, the call feature is not available", preferredStyle: .alert)
-            alertMessage.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alertMessage, animated: true, completion: nil)
-        }
-        let callAction = UIAlertAction(title: "Call (800)123-\(indexPath.row)", style: .default, handler: callActionHandler)
-        optionMenu.addAction(callAction)
-        
-        if Model.getCheckIn(at: indexPath.row) {
-            let undoCheckinHandler = {(action:UIAlertAction)->Void in
-                let cell = tableView.cellForRow(at: indexPath)
-                cell?.accessoryType = .none
-                Model.setCheckIn(at: indexPath.row, checkin: false)
-            }
-            let undoCheckinAction = UIAlertAction(title: "Undo Check in", style: .default, handler: undoCheckinHandler)
-            optionMenu.addAction(undoCheckinAction)
-        } else {
-            let checkinHandler = {(action:UIAlertAction)->Void in
-                let cell = tableView.cellForRow(at: indexPath)
-                cell?.accessoryType = .checkmark
-                Model.setCheckIn(at: indexPath.row, checkin: true)
-            }
-            let checkinAction = UIAlertAction(title: "Check in", style: .default, handler: checkinHandler)
-            optionMenu.addAction(checkinAction)
-        }
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        optionMenu.addAction(cancelAction)
-        
-        present(optionMenu, animated: true, completion: nil)
-    }
-    
+       
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let shareHandler = {(action: UITableViewRowAction, indexPath: IndexPath) -> Void in
             let defaultText = "Just checking in at \(Model.getName(at: indexPath.row))"
@@ -89,6 +54,18 @@ class ViewController: UITableViewController {
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: deleteHandler)
         
         return [shareAction, deleteAction]
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showRestaurantDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let controller = segue.destination as! DetailViewController
+                controller.restaurantImage = Model.getImage(at: indexPath.row)
+                controller.restaurantName = Model.getName(at: indexPath.row)
+                controller.restaurantType = Model.getType(at: indexPath.row)
+                controller.restaurantLocation = Model.getLocation(at: indexPath.row)
+            }
+        }
     }
 }
 

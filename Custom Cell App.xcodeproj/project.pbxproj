@@ -14,6 +14,7 @@
 		4738A841225031F7004DCB87 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4738A83F225031F7004DCB87 /* LaunchScreen.storyboard */; };
 		4738A849225032A2004DCB87 /* CustomCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4738A848225032A2004DCB87 /* CustomCellView.swift */; };
 		4738A84B22503405004DCB87 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4738A84A22503404004DCB87 /* Model.swift */; };
+		476930852250DB68007708B7 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 476930842250DB68007708B7 /* DetailViewController.swift */; };
 		478F6A532250548C0075C44A /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 478F6A522250548C0075C44A /* Readme.md */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,7 @@
 		4738A842225031F7004DCB87 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4738A848225032A2004DCB87 /* CustomCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellView.swift; sourceTree = "<group>"; };
 		4738A84A22503404004DCB87 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		476930842250DB68007708B7 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		478F6A522250548C0075C44A /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
@@ -69,6 +71,7 @@
 				4738A842225031F7004DCB87 /* Info.plist */,
 				4738A848225032A2004DCB87 /* CustomCellView.swift */,
 				4738A84A22503404004DCB87 /* Model.swift */,
+				476930842250DB68007708B7 /* DetailViewController.swift */,
 			);
 			path = "Custom Cell App";
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 			files = (
 				4738A849225032A2004DCB87 /* CustomCellView.swift in Sources */,
 				4738A839225031F6004DCB87 /* ViewController.swift in Sources */,
+				476930852250DB68007708B7 /* DetailViewController.swift in Sources */,
 				4738A837225031F6004DCB87 /* AppDelegate.swift in Sources */,
 				4738A84B22503405004DCB87 /* Model.swift in Sources */,
 			);
