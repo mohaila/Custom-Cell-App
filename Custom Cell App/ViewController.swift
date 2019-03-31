@@ -73,11 +73,22 @@ class ViewController: UITableViewController {
         present(optionMenu, animated: true, completion: nil)
     }
     
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let shareHandler = {(action: UITableViewRowAction, indexPath: IndexPath) -> Void in
+            let defaultText = "Just checking in at \(Model.getName(at: indexPath.row))"
+            let ac = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
+            self.present(ac, animated: true, completion: nil)
+        }
+        let shareAction = UITableViewRowAction(style: .default, title: "Share", handler: shareHandler)
+        shareAction.backgroundColor = UIColor(red: 0.2, green: 0.8, blue: 0.45, alpha: 1.0)
+        
+        let deleteHandler = {(action: UITableViewRowAction, indexPath: IndexPath) -> Void in
             Model.remove(index: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete", handler: deleteHandler)
+        
+        return [shareAction, deleteAction]
     }
 }
 
