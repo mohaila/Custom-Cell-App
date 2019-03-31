@@ -25,48 +25,52 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pq3-yc-ayN">
-                                            <rect key="frame" x="10" y="10" width="60" height="60"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="60" id="WL6-NV-tKu"/>
-                                                <constraint firstAttribute="width" constant="60" id="rj4-rM-Npr"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
-                                                    <integer key="value" value="30"/>
-                                                </userDefinedRuntimeAttribute>
-                                            </userDefinedRuntimeAttributes>
-                                        </imageView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="3Uv-OS-ToB">
-                                            <rect key="frame" x="80" y="5" width="148" height="69.5"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="qyq-TO-c8s">
+                                            <rect key="frame" x="10" y="2" width="365" height="68.5"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Restaurant name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbc-Nu-kt1">
-                                                    <rect key="frame" x="0.0" y="0.0" width="148" height="26.5"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Restaurant type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJ7-s0-fc2">
-                                                    <rect key="frame" x="0.0" y="27.5" width="148" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Restaurant location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynB-mP-Zse">
-                                                    <rect key="frame" x="0.0" y="49" width="148" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pq3-yc-ayN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="WL6-NV-tKu"/>
+                                                        <constraint firstAttribute="width" constant="60" id="rj4-rM-Npr"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
+                                                            <integer key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="3Uv-OS-ToB">
+                                                    <rect key="frame" x="70" y="0.0" width="295" height="64.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hbc-Nu-kt1">
+                                                            <rect key="frame" x="0.0" y="0.0" width="295" height="21.5"/>
+                                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AJ7-s0-fc2">
+                                                            <rect key="frame" x="0.0" y="22.5" width="295" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ynB-mP-Zse">
+                                                            <rect key="frame" x="0.0" y="44" width="295" height="20.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="pq3-yc-ayN" firstAttribute="leading" secondItem="GCW-2S-LaY" secondAttribute="leading" constant="10" id="ANL-qd-IxS"/>
-                                        <constraint firstItem="3Uv-OS-ToB" firstAttribute="top" secondItem="GCW-2S-LaY" secondAttribute="top" constant="5" id="b1g-fz-Uf8"/>
-                                        <constraint firstItem="pq3-yc-ayN" firstAttribute="top" secondItem="GCW-2S-LaY" secondAttribute="top" constant="10" id="eNB-ID-5Te"/>
-                                        <constraint firstItem="3Uv-OS-ToB" firstAttribute="leading" secondItem="GCW-2S-LaY" secondAttribute="leading" constant="80" id="qKh-34-VdD"/>
-                                        <constraint firstAttribute="bottom" secondItem="3Uv-OS-ToB" secondAttribute="bottom" constant="5" id="zCl-u9-jRF"/>
+                                        <constraint firstAttribute="trailing" secondItem="qyq-TO-c8s" secondAttribute="trailing" id="0uH-Tc-RcM"/>
+                                        <constraint firstItem="qyq-TO-c8s" firstAttribute="leading" secondItem="GCW-2S-LaY" secondAttribute="leading" constant="10" id="8S0-Ub-uGu"/>
+                                        <constraint firstItem="qyq-TO-c8s" firstAttribute="top" secondItem="GCW-2S-LaY" secondAttribute="top" constant="2" id="OQv-qj-5il"/>
+                                        <constraint firstAttribute="bottom" secondItem="qyq-TO-c8s" secondAttribute="bottom" constant="9" id="ySo-Bk-gv4"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
