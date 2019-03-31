@@ -21,7 +21,7 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Model.restaurantNames.count
+        return Model.count()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -29,11 +29,11 @@ class ViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: ident, for: indexPath) as! CustomCellView
         
         // Configure Cell
-        cell.nameLabel.text = Model.restaurantNames [indexPath.row]
-        cell.locationLabel.text = Model.restaurantLocations  [indexPath.row]
-        cell.typeLabel.text = Model.restaurantTypes  [indexPath.row]
-        cell.thumbnailImageView.image = UIImage(named: Model.restaurantImages  [indexPath.row])
-        cell.accessoryType = Model.restaurantCheckin [indexPath.row] ? .checkmark : .none
+        cell.nameLabel.text = Model.getName(at: indexPath.row)
+        cell.locationLabel.text = Model.getLocation(at: indexPath.row)
+        cell.typeLabel.text = Model.getType(at: indexPath.row)
+        cell.thumbnailImageView.image = UIImage(named: Model.getImage(at: indexPath.row))
+        cell.accessoryType = Model.getCheckIn(at: indexPath.row) ? .checkmark : .none
         
         return cell
     }
@@ -49,13 +49,11 @@ class ViewController: UITableViewController {
         let callAction = UIAlertAction(title: "Call (800)123-\(indexPath.row)", style: .default, handler: callActionHandler)
         optionMenu.addAction(callAction)
         
-        if Model.restaurantCheckin [indexPath.row] {
+        if Model.getCheckIn(at: indexPath.row) {
             let undoCheckinHandler = {(action:UIAlertAction)->Void in
-                if Model.restaurantCheckin [indexPath.row] {
-                    let cell = tableView.cellForRow(at: indexPath)
-                    cell?.accessoryType = .none
-                    Model.restaurantCheckin [indexPath.row] = false
-                }
+                let cell = tableView.cellForRow(at: indexPath)
+                cell?.accessoryType = .none
+                Model.setCheckIn(at: indexPath.row, checkin: false)
             }
             let undoCheckinAction = UIAlertAction(title: "Undo Check in", style: .default, handler: undoCheckinHandler)
             optionMenu.addAction(undoCheckinAction)
@@ -63,7 +61,7 @@ class ViewController: UITableViewController {
             let checkinHandler = {(action:UIAlertAction)->Void in
                 let cell = tableView.cellForRow(at: indexPath)
                 cell?.accessoryType = .checkmark
-                Model.restaurantCheckin [indexPath.row] = true
+                Model.setCheckIn(at: indexPath.row, checkin: true)
             }
             let checkinAction = UIAlertAction(title: "Check in", style: .default, handler: checkinHandler)
             optionMenu.addAction(checkinAction)
@@ -74,6 +72,12 @@ class ViewController: UITableViewController {
         
         present(optionMenu, animated: true, completion: nil)
     }
-
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            Model.remove(index: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
 }
 
