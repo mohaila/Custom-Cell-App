@@ -15,7 +15,7 @@ class ViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -42,7 +42,7 @@ class ViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let shareHandler = {(action: UITableViewRowAction, indexPath: IndexPath) -> Void in
             let restaurant = Model.getRestaurant(at: indexPath.row)
-            let defaultText = "Just checking in at \(restaurant.name)"
+            let defaultText = "Just checking in at \(String(describing: restaurant.name))"
             let ac = UIActivityViewController(activityItems: [defaultText], applicationActivities: nil)
             self.present(ac, animated: true, completion: nil)
         }

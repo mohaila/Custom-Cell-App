@@ -17,6 +17,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let apparence = UINavigationBar.appearance()
+        apparence.barTintColor = UIColor(red: 0.85, green: 0.3, blue: 0.25, alpha: 1.0)
+        apparence.tintColor = UIColor.white
+        if let barFont = UIFont(name: "BanglaSangamMN-Bold", size: 24.0) {
+            apparence.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white,
+                                             NSAttributedString.Key.font: barFont]
+        }
+        
+        UIApplication.shared.statusBarStyle = .lightContent
+
         return true
     }
 
